@@ -1,19 +1,28 @@
-import React from 'react'
-import Nav from './components/Nav'
-import Router from './utils/Router'
-import Footer from './components/Footer'
-import Home from './components/Home'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+import { BrowserRouter } from 'react-router-dom'
 
-const App = () => {
-  return (
-    <div className="flex flex-col min-h-screen">
-      <Nav />
-      <div className="flex-grow">
-        <Router />
-      </div>
-      <Footer />
-    </div>
-  )
+import { ClerkProvider } from '@clerk/clerk-react'
+
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
+
+
+console.log("CLERK KEY:", PUBLISHABLE_KEY)
+
+if (!PUBLISHABLE_KEY) {
+  throw new Error('pk_test_dXNlZnVsLXN0dXJnZW9uLTUxODUuY2xlcmsuYWNjb3VudHMuZGV2JA')
 }
 
-export default App
+createRoot(document.getElementById('root')).render(
+ 
+  <BrowserRouter>
+  <StrictMode>
+  <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+    <App />
+    </ClerkProvider>
+  </StrictMode>
+  </BrowserRouter>
+  
+)
