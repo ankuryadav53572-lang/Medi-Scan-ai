@@ -1,19 +1,17 @@
-import React from 'react'
-import Nav from './components/Nav'
-import Router from './utils/Router'
-import Footer from './components/Footer'
-import Home from './components/Home'
+import Nav from './Nav';
+import Footer from './Footer';
+import Home from './Home';
 
 const App = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Nav />
-      <div className="flex-grow">
-        <Router />
-      </div>
+      <main className="flex-grow">
+        <Home />
+      </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
