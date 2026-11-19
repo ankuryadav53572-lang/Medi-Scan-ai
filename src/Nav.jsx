@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/logo.png"
+
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 
 function Nav() {
@@ -8,10 +8,9 @@ function Nav() {
     <nav className="w-full flex-wrap mt-4 mb-6 pl-6 pr-6 gap-5 font-semibold flex items-center justify-between">
      <div className="flex flex-row gap-5 justofy-center items-center ">
      <NavLink to="/">
-        <img
-          src={Logo}
-          className="mr-0 w-10 h-10 bg-zinc-400 rounded-full object-cover"
-        />
+        <div className="mr-0 w-10 h-10 bg-zinc-400 rounded-full flex items-center justify-center font-bold text-white">
+  M
+</div>
       </NavLink><NavLink to="/" className="text-xl">MediScan Ai</NavLink>
      </div>
      <div className="flex justify-center itmes-center gap-5">
